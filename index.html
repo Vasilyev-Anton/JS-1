@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let n = Math.floor(Math.random() * 1000);
+       console.log(n);
+       let userGuess = prompt ('Игра "Угадай число." Введите значение от 0 до 999: ');
+       if (isNaN(userGuess) || (userGuess < 0 || userGuess > 999)) {
+        alert('Вы ввели некорректное значение!');
+     } else if (userGuess > n) {
+        alert('Больше');
+     } else if (userGuess < n) {
+        alert('Меньше');
+     } else {
+        alert('Вы угадали!');
+     };
+    </script>
+</body>
+</html>
