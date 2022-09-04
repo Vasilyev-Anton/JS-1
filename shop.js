@@ -47,40 +47,71 @@ const goods = [
 
 let basket = [
     {
-        goodId: 2,
-        name: 'Брюки',
+        good: 2,
         amount: 2,
-        price: 200,
     },
 
     {
-        goodId: 5,
-        name: 'Шорты',
+        good: 5,
         amount: 1,
-        price: 100,
     },
 
     {
-        goodId: 1,
-        name: 'Рубашка',
+        good: 1,
         amount: 5,
-        price: 100,
     },
 ];
-function addThing(name = "Свитер", amount = 2) {
+
+function addThing(name, amount) {
     for (let i in goods) {
         if (goods[i].name === name) {
-           let thing = {
-                goodId: goods[i].id,
-                name: goods[i].name,
+            let thing = {
+                good: goods[i].id,
                 amount,
-                price: goods[i].price,
             }
             basket.push(thing);
         }
-    
     }
     return basket
 }
 
-console.log(addThing(process.argv[2]))
+function delThing(name) {
+    for (let i in goods) {
+        if (goods[i].name === name) {
+            let thing = {
+                good: goods[i].id,
+            }
+            for (let j in basket) {
+                if (basket[j].good === thing.good) {
+                    basket.splice(j, 1);
+                }
+            }
+        }
+    }
+    return basket;
+}
+
+function clearBasket() {
+    basket.length = 0;
+    return basket;
+}
+
+function totalCalc() {
+let totalAmount = 0,
+    totalSumm = 0,
+    i, 
+    j;
+    for (i in basket) {
+        totalAmount += basket[i].amount
+        for (j in goods) {
+            if (goods[j].id === basket[i].good) {
+                totalSumm += (goods[j].price * basket[i].amount)
+            }
+        }
+    }
+    return ({totalAmount, totalSumm})
+}
+// console.log(addThing(process.argv[2], +process.argv[3]))
+// console.log(delThing(process.argv[2]))
+// console.log(clearBasket())
+console.log(totalCalc())
