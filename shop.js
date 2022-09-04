@@ -75,9 +75,10 @@ function addThing(name = "Свитер", amount = 2) {
                 name: goods[i].name,
                 amount,
                 price: goods[i].price,
-            };
-        basket.push(thing);
+            }
+            basket.push(thing);
         }
+    
     }
     return basket
 }
