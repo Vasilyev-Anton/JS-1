@@ -104,10 +104,7 @@ class Basket {
             console.log(`Товар "${this.goods[idx].name}" был удалён.`);
             this.goods.splice(idx, 1);
         }
-        // else if (this.goods[idx].amount > amount) {
-            // this.goods[idx].amount -= amount;
         else this.goods[idx].amount -= amount;
-        // }
     }
 
     clear() {
