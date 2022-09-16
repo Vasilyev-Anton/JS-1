@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таймер обратного отсчёта</title>
+</head>
+<body>
+    <span>До окончания конкурса осталось:</span>
+    <span id="timer">5</span>
+    <script type="text/javascript">
+    const num = document.getElementById("timer");
+
+    let timer = setInterval (() => {
+        num.textContent = num.textContent > 0 ? num.textContent - 1 : (alert("Вы победили в конкурсе!"), clearInterval(timer));   
+    }, 500);
+    </script>
+</body>
+</html>
