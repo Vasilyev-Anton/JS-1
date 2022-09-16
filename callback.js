@@ -6,7 +6,7 @@ console.log(number);
 function guessNumber () {
     rl.question('Игра "Угадай число". Нажмите "q" для выхода или введите число от 1 до 999: ', (guessUser) => {
         if (guessUser === 'q') {
-            return (rl.close(console.log(`Выход из игры. Всего попыток было: ${count}`)));
+            return (rl.close(console.log(`Выход из игры. Всего попыток: ${count}`)));
         } else if (isNaN(guessUser) || (guessUser < 0 || guessUser > 999)) {
             console.log(`Некорректное значение! Попытка ${++count}.`);
         } else if (guessUser > number) {
